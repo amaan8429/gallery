@@ -23,12 +23,3 @@ export default async function HomePage() {
     </main>
   );
 }
-
-{
-  /* <div
-            key={image.id + "-" + index}
-            className="h-64 w-64 border-2 border-white"
-          >
-            <img src={image.url} />
-          </div> */
-}

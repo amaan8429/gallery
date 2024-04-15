@@ -1,20 +1,13 @@
 import "~/styles/globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { Inter } from "next/font/google";
+import TopNav from "./_components/page";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
-
-function TopNav() {
-  return (
-    <nav className="mx-auto flex w-full items-center justify-between border-b p-4 text-xl font-semibold">
-      <div className="">Gallery</div>
-      <div className="">SignIn</div>
-    </nav>
-  );
-}
 
 export const metadata = {
   title: "Gallery",
@@ -28,11 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${inter.variable} flex flex-col gap-4`}>
-        <TopNav />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`font-sans ${inter.variable} flex flex-col gap-4`}>
+          <TopNav />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
