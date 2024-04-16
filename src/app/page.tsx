@@ -9,12 +9,12 @@ export async function Images() {
   });
   return (
     <div className="flex w-full flex-wrap gap-4">
-      {[...images, ...images, ...images].map((image, index) => (
-        <div className="" key={image.id + "-" + index}>
+      {images.map((image) => (
+        <div className="" key={image.id}>
           <div className="h-64 w-64 overflow-hidden border-2 border-white">
             <img src={image.url} />
           </div>
-          <div>{image.name}</div>
+          <div className="w-64">{image.name}</div>
         </div>
       ))}
     </div>
