@@ -12,7 +12,7 @@ export async function Images() {
       {images.map((image) => (
         <div className="" key={image.id}>
           <div className="h-64 w-64 overflow-hidden border-2 border-white">
-            <Link href={`@/img/${image.id}`}>
+            <Link href={`/img/${image.id}`}>
               <Image
                 src={image.url}
                 alt={image.name}
