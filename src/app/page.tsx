@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export async function Images() {
   const images = await getMyImages();
   return (
-    <div className="flex w-full flex-wrap justify-center gap-4">
+    <div className="flex w-full flex-wrap justify-center gap-4 p-4">
       {images.map((image) => (
         <div className="" key={image.id}>
           <div className="h-64 w-64 overflow-hidden border-2 border-white">
