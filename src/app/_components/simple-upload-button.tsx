@@ -87,7 +87,8 @@ export function SimpleUploadButton() {
       );
     },
     onUploadError: (err) => {
-      toast.error("Upload failed: " + err.message);
+      posthog.capture("upload-error", { error: err.message });
+      toast.error("You are being rate limited");
     },
     onClientUploadComplete: () => {
       toast.dismiss("uploading-image");

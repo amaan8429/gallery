@@ -17,6 +17,12 @@ dependencies:
   '@uploadthing/react':
     specifier: ^6.4.4
     version: 6.4.4(next@14.2.1)(react@18.2.0)(uploadthing@6.9.0)
+  '@upstash/ratelimit':
+    specifier: ^1.1.1
+    version: 1.1.1
+  '@upstash/redis':
+    specifier: ^1.30.0
+    version: 1.30.0
   '@vercel/postgres':
     specifier: ^0.8.0
     version: 0.8.0
@@ -1289,6 +1295,25 @@ packages:
     dependencies:
       '@uploadthing/mime-types': 0.2.7
       std-env: 3.7.0
+    dev: false
+
+  /@upstash/core-analytics@0.0.7:
+    resolution: {integrity: sha512-lC2j5efqb1haX/fpTGaPUx1rue1WUkOZBVHDzCB7eMIVsRdFFp4xiHtyH/G9omiR1zj39fU5SCTWFiKJH3KOpw==}
+    engines: {node: '>=16.0.0'}
+    dependencies:
+      '@upstash/redis': 1.30.0
+    dev: false
+
+  /@upstash/ratelimit@1.1.1:
+    resolution: {integrity: sha512-e9xnKkHOYzOoqt5eH5bCB90UslkW/sKcKaDwcd07QZ40lkAPHE8DEuzgZwXuKfuywWp8XDE/c6HwDXcsTsNfww==}
+    dependencies:
+      '@upstash/core-analytics': 0.0.7
+    dev: false
+
+  /@upstash/redis@1.30.0:
+    resolution: {integrity: sha512-bkxl2n7qls27hONXNyItM6ccRT0NBJ8c6zl83wx+TlODpYXehgeiUJTkcTaXLp7hk+zy6Mqpzpeo3GX+wZSvBw==}
+    dependencies:
+      crypto-js: 4.2.0
     dev: false
 
   /@vercel/postgres@0.8.0:
