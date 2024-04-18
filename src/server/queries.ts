@@ -2,6 +2,9 @@ import "server-only";
 import { auth } from "@clerk/nextjs/server";
 import { db } from "./db";
 import { UploadThingError } from "uploadthing/server";
+import { images } from "./db/schema";
+import { and, eq } from "drizzle-orm";
+import { redirect } from "next/navigation";
 
 export async function getMyImages() {
   const user = auth();
@@ -38,4 +41,16 @@ export async function getMyImage(id: number) {
   }
 
   return image;
+}
+
+export async function deleteMyImage(id: number) {
+  const user = auth();
+
+  if (!user.userId) throw new UploadThingError("Unauthorized");
+
+  await db
+    .delete(images)
+    .where(and(eq(images.id, id), eq(images.userId, user.userId)));
+
+  redirect("/");
 }
