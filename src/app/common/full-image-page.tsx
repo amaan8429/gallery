@@ -1,14 +1,18 @@
 import { clerkClient } from "@clerk/nextjs/server";
 import { deleteMyImage, getMyImage } from "~/server/queries";
 import { Button } from "../../components/ui/button";
+import Image from "next/image";
+import BackButton from "./back-button";
+import { toast } from "sonner";
 
 export default async function FullPageImageView(props: { id: number }) {
   const image = await getMyImage(props.id);
   const uploaderInfo = await clerkClient.users.getUser(image.userId);
   return (
-    <div className="flex h-full w-full min-w-0">
+    <div className="flex h-full w-full min-w-0 flex-col sm:flex-row">
       <div className="flex flex-shrink items-center justify-center">
-        <img src={image.url} className="flex-shrink object-contain" />;
+        {/* <img src={image.url} className="flex-shrink object-contain" />; */}
+        <Image src={image.url} width={500} height={500} alt="photo" />
       </div>
       <div className="flex flex-shrink-0 flex-col border-l">
         <div className="border-b p-2 text-center text-lg">{image.name}</div>
@@ -23,7 +27,6 @@ export default async function FullPageImageView(props: { id: number }) {
         <div className="p-2">
           <form
             action={async () => {
-              // Delete image
               "use server";
 
               await deleteMyImage(image.id);
@@ -34,6 +37,7 @@ export default async function FullPageImageView(props: { id: number }) {
             </Button>
           </form>
         </div>
+        <BackButton />
       </div>
     </div>
   );
