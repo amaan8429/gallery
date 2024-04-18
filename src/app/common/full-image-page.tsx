@@ -1,10 +1,8 @@
 import { clerkClient } from "@clerk/nextjs/server";
 import { deleteMyImage, getMyImage } from "~/server/queries";
 import { Button } from "../../components/ui/button";
-import { useRouter } from "next/navigation";
 
 export default async function FullPageImageView(props: { id: number }) {
-  const router = useRouter();
   const image = await getMyImage(props.id);
   const uploaderInfo = await clerkClient.users.getUser(image.userId);
   return (
@@ -29,7 +27,6 @@ export default async function FullPageImageView(props: { id: number }) {
               "use server";
 
               await deleteMyImage(image.id);
-              router.push("/");
             }}
           >
             <Button type="submit" variant={"destructive"}>
