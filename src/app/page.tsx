@@ -1,6 +1,8 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { Footer } from "~/components/footer";
+import { Hero } from "~/components/hero";
 import { getMyImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
@@ -33,9 +35,10 @@ export default async function HomePage() {
   return (
     <main className="w-full">
       <SignedOut>
-        <div className="text-center text-3xl">
-          Please sign in to view images
+        <div className="h-[70vh]">
+          <Hero />
         </div>
+        <Footer />
       </SignedOut>
       <SignedIn>
         <Images />
