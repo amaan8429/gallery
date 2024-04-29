@@ -35,7 +35,7 @@ export default async function HomePage() {
   return (
     <main className="w-full">
       <SignedOut>
-        <div className="h-[70vh]">
+        <div className="flex h-[70vh] flex-col">
           <Hero />
         </div>
         <Footer />

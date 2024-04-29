@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { SimpleUploadButton } from "./simple-upload-button";
 import { Button } from "~/components/ui/button";
@@ -17,14 +18,32 @@ function TwitterSquareIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export default function TopNav() {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 640); // Adjust the breakpoint as needed
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <nav className="mx-auto flex w-full items-center justify-between border-b p-4 text-xl font-semibold">
       <div className="">Gallery</div>
       <div className="flex flex-row items-center gap-4">
         <SignedOut>
-          <span className="text-white">
-            Star this Project <span>&#8649;</span>
-          </span>
+          {!isSmallScreen && (
+            <span className="text-white ">
+              Star this Project <span>&#8649;</span>
+            </span>
+          )}
           <Link href={"https://github.com/amaan8429/gallery"} target="_blank">
             <TwitterSquareIcon className="h-10 w-10" />
           </Link>
@@ -33,9 +52,11 @@ export default function TopNav() {
           </Button>
         </SignedOut>
         <SignedIn>
-          <span className="text-white">
-            Star this Project <span>&#8649;</span>
-          </span>
+          {!isSmallScreen && (
+            <span className="text-white">
+              Star this Project <span>&#8649;</span>
+            </span>
+          )}
           <Link href={"https://github.com/amaan8429/gallery"} target="_blank">
             <TwitterSquareIcon className="h-10 w-10" />
           </Link>
