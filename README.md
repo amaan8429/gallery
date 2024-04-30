@@ -1,7 +1,3 @@
-Certainly! Here's a revised version of your README:
-
----
-
 # T3 Stack Gallery
 
 ## Project Overview
