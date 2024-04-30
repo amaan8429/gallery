@@ -24,6 +24,24 @@ export function Hero() {
             >
               Simple Gallery Application built with{"  "}
               <span className="text-gray-100">
+                <a href="https://nextjs.org/" target="_blank">
+                  Next.js
+                </a>
+              </span>{" "}
+              ,{" "}
+              <span className="text-gray-100">
+                <a href="https://www.typescriptlang.org/" target="_blank">
+                  TypeScript
+                </a>
+              </span>{" "}
+              ,{" "}
+              <span className="text-gray-100">
+                <a href="https://ui.shadcn.com/" target="_blank">
+                  Shadcn UI
+                </a>
+              </span>{" "}
+              ,{" "}
+              <span className="text-gray-100">
                 <a href="https://tailwindcss.com/" target="_blank">
                   Tailwind CSS
                 </a>
@@ -47,6 +65,12 @@ export function Hero() {
                   target="_blank"
                 >
                   Vercel-Postgres
+                </a>
+              </span>
+              {"  "},{"  "}
+              <span className="text-gray-100">
+                <a href="https://www.uploadthing.com/" target="_blank">
+                  UploadThing
                 </a>
               </span>
               {"  "},{"  "}
