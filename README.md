@@ -153,3 +153,4 @@ Ensure you keep sensitive information such as API keys and credentials secure an
 That's it! Your environment is now set up for the Next.js project. You can now run the project locally or deploy it as needed.
 
 ---
+#hello world
